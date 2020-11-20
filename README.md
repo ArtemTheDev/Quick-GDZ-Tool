@@ -1,0 +1,1 @@
+# Quick-GDZ-Tool
