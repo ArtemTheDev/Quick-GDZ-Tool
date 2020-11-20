@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Quick GDZ Tool</string>
+    <string name="subject">Предмет</string>
+    <string name="form">Класс</string>
+    <string name="number">Номер</string>
+
+    <string name="saveAsDefault">Сохранить настройки</string>
+    <string name="search">Найти</string>
+
+    <string name="link">Ссылка на сайт</string>
+
+    <!-- SUBJECTS -->
+    <string-array name="subjects">
+        <item name="maths">Алгебра</item>
+        <item name="geometry">Геометрия</item>
+        <item name="russian">Рус. яз.</item>
+        <item name="biology">Биология</item>
+        <item name="geograhy">География</item>
+    </string-array>
+
+    <!-- FORMS -->
+    <string-array name="forms">
+        <item name="7">7</item>
+        <item name="8">8</item>
+        <item name="9">9</item>
+        <item name="10">10</item>
+        <item name="11">11</item>
+    </string-array>
+</resources>
