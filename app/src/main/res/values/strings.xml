@@ -3,6 +3,7 @@
     <string name="subject">Предмет</string>
     <string name="form">Класс</string>
     <string name="number">Номер</string>
+    <string name="paragraph">Параграф</string>
 
     <string name="saveAsDefault">Сохранить настройки</string>
     <string name="search">Найти</string>
@@ -24,6 +25,5 @@
         <item name="8">8</item>
         <item name="9">9</item>
         <item name="10">10</item>
-        <item name="11">11</item>
     </string-array>
 </resources>

@@ -8,15 +8,19 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:columnCount="2"
+        android:layout_margin="25dp"
         tools:context=".MainActivity">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
             android:text="@string/subject"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"/>
@@ -25,16 +29,18 @@
             android:id="@+id/SubjectSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_column="1"
+            android:layout_row="0"
             android:entries="@array/subjects"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
             android:text="@string/form"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_marginBottom="30dp"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"/>
@@ -42,59 +48,81 @@
         <Spinner
             android:id="@+id/FormSpinner"
             android:layout_width="147dp"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_gravity="fill_horizontal"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
             android:entries="@array/forms" />
 
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            android:text="@string/number"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:layout_marginBottom="30dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="30dp"
-                android:text="@string/number"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"/>
+        <EditText
+             android:id="@+id/TaskEdit"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_column="1"
+             android:layout_row="2"
+             android:layout_gravity="fill_horizontal"
+             android:ems="5"
+             android:inputType="numberDecimal"
+             android:autofillHints="" />
 
-            <EditText
-                android:id="@+id/TaskEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
-                android:ems="5"
-                android:inputType="numberDecimal" />
+        <TextView
+            android:id="@+id/parag_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_marginBottom="30dp"
+            android:text="@string/paragraph"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-        </LinearLayout>
+        <EditText
+            android:id="@+id/parag_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:layout_gravity="fill_horizontal"
+            android:ems="5"
+            android:inputType="numberDecimal"
+            android:autofillHints="" />
 
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="10dp"
+            android:layout_column="0"
+            android:layout_row="4"
+            android:layout_columnSpan="2"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
             android:onClick="saveAsDefault"
             android:text="@string/saveAsDefault"/>
 
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
+            android:layout_column="0"
+            android:layout_row="5"
+            android:layout_columnSpan="2"
+            android:layout_gravity="center_horizontal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_marginBottom="10dp"
             android:onClick="search"
             android:text="@string/search"/>
 
