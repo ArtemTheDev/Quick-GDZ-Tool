@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -30,6 +31,8 @@ public class answer_Activity extends AppCompatActivity {
     private Document doc;
     private Thread secThread;
     private Runnable runnable;
+
+    TextView link_view;
 
 
     @Override
@@ -54,15 +57,21 @@ public class answer_Activity extends AppCompatActivity {
         task = intent.getStringExtra("task");
         paragraph = intent.getStringExtra("paragraph");
 
+        link = link_generator(subject, form, task, paragraph);
+
         // Инициализация потоков для парсера
         runnable = new Runnable() {
             @Override
             public void run() {
-                parse(link_generator(subject, form, task, paragraph));
+                parse(link);
             }
         };
         secThread = new Thread(runnable);
         secThread.start();
+
+        // Ссылка на оригинал
+        link_view = findViewById(R.id.link);
+        link_view.setText(link);
     }
 
 
@@ -96,7 +105,26 @@ public class answer_Activity extends AppCompatActivity {
                     case "10":
                         part = "class-10/algebra/merzlyak";
                         task = String.format("%s-%s", paragraph, task);
-                        elementID = 3;
+                        break;
+                }
+                break;
+
+            case "Геометрия":
+                switch (form) {
+                    case "7":
+                        part = "class-7/geometria/merzljak";
+                        task = task + "-nom";
+                        break;
+                    case "8":
+                        part = "class-8/geometria/merzlyak";
+                        task = task + "-nom";
+                        break;
+                    case "9":
+                        part = "class-9/geometria/merzlyak-polonskij";
+                        task = task + "-nom";
+                        break;
+                    case "10":
+                        no_book = true;
                         break;
                 }
                 break;
@@ -106,12 +134,10 @@ public class answer_Activity extends AppCompatActivity {
                     case "7":
                         part = "class-7/russkii_yazik/rybchenkova";
                         task = task + "-nom";
-                        elementID = 9;
                         break;
                     case "8":
                         part = "class-8/russkii_yazik/rybchenkova";
                         task = task + "-nom";
-                        elementID = 7;
                         break;
                     case "9":
                         part = "class-9/russkii_yazik/ribchenkova-9";

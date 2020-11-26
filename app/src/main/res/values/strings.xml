@@ -6,6 +6,7 @@
     <string name="paragraph">Параграф</string>
 
     <string name="saveAsDefault">Сохранить настройки</string>
+    <string name="saving_completed">Сохранение настроек завершено!</string>
     <string name="search">Найти</string>
 
     <string name="link">Ссылка на сайт</string>
@@ -15,8 +16,6 @@
         <item name="maths">Алгебра</item>
         <item name="geometry">Геометрия</item>
         <item name="russian">Рус. яз.</item>
-        <item name="biology">Биология</item>
-        <item name="geograhy">География</item>
     </string-array>
 
     <!-- FORMS -->

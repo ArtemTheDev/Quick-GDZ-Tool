@@ -3,13 +3,16 @@ package com.artemthedev.quickgdztool;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,20 +75,46 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
+
+        // Полуенние сохранения
+        loadState();
     }
 
 
-    public void saveAsDefault(View view) {
-        // Сохранение дефолтных настроек
-    }
-
-
-    public void search(View view) {
+    public void UpdateDataState() {
         // Получение данных
         subject = subject_spinner.getSelectedItem().toString();
         form = form_spinner.getSelectedItem().toString();
         task = TaskEdit.getText().toString();
         paragraph = parag_edit.getText().toString();
+    }
+
+
+    public void saveAsDefault(View view) {
+        // Сохранение дефолтных настроек
+        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        SharedPreferences.Editor Editor = myPreferences.edit();
+
+        Editor.putInt("subject", subject_spinner.getSelectedItemPosition());
+        Editor.putInt("form", form_spinner.getSelectedItemPosition());
+        //Editor.putInt("task", Integer.parseInt(TaskEdit.toString()));
+        //Editor.putInt("paragraph", Integer.parseInt(parag_edit.toString()));
+        Editor.apply();
+
+        Log.d(settings.DEBUG_TAG, "save");
+        Toast.makeText(this, R.string.saving_completed, Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void loadState() {
+        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        subject_spinner.setSelection(myPreferences.getInt("subject", 0));
+        form_spinner.setSelection(myPreferences.getInt("form", 0));
+    }
+
+
+    public void search(View view) {
+        UpdateDataState();
 
         // Создание интента
         Intent intent = new Intent(this, answer_Activity.class);
